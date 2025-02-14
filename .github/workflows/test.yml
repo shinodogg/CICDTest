@@ -20,12 +20,15 @@ jobs:
           ruby-version: 3.3.6
       - name: Install dependencies
         run: |
+          cd ./hoge
           gem install bundler
           bundle install
       - name: Setup database
         run: |
+          cd ./hoge
           bundle exec rake db:create
           bundle exec rake db:migrate
       - name: Run tests
         run: |
+          cd ./hoge
           rails test
