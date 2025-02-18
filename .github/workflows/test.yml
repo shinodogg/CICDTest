@@ -9,6 +9,12 @@ on:
     branches:
       - main
 
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: password
+  POSTGRES_DB: test_db
+  DB_HOST: localhost
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,11 +46,6 @@ jobs:
           gem install bundler
           bundle install
       - name: Setup database
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: test_db
-          DB_HOST: localhost
         run: |
           echo "Using database user: $POSTGRES_USER"
           echo "Using database password: $POSTGRES_PASSWORD"
