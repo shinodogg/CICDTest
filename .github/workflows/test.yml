@@ -44,7 +44,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
           POSTGRES_DB: test_db
-          DB_HOST: postgres
+          DB_HOST: localhost
         run: |
           echo "Using database user: $POSTGRES_USER"
           echo "Using database password: $POSTGRES_PASSWORD"
