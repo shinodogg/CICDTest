@@ -40,7 +40,13 @@ jobs:
           gem install bundler
           bundle install
       - name: Setup database
+        env:
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         run: |
+          echo "Using database user: $POSTGRES_USER"
+          echo "Using database password: $POSTGRES_PASSWORD"
           bundle exec rake db:create
           bundle exec rake db:migrate
       - name: Run tests
