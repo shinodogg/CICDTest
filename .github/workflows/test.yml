@@ -51,4 +51,4 @@ jobs:
           bundle exec rake db:migrate
       - name: Run tests
         run: |
-          rails test
+          rails test RAILS_ENV=test
